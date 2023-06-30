@@ -2,18 +2,18 @@ import { View, Text } from "react-native";
 import React from "react";
 import { ListItem, Avatar } from "@rneui/themed";
 
-const CustomListItem = ({ id, chatName, enterChat }) => {
+const CustomListItem = ({ id, data, enterChat }) => {
   return (
-    <ListItem bottomDivider>
+    <ListItem bottomDivider onPress={() => enterChat(id, data)}>
       <Avatar
         rounded
         source={{ uri: "https://randomuser.me/api/portraits/men/36.jpg" }}
       />
       <ListItem.Content>
-        <ListItem.Title style={{ fontWeight: "800" }}>John Doe</ListItem.Title>
-        <ListItem.Subtitle numberOfLines={1}>
-          President Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </ListItem.Subtitle>
+        <ListItem.Title style={{ fontWeight: "800" }}>
+          {data.chatName}
+        </ListItem.Title>
+        <ListItem.Subtitle numberOfLines={1}>ABCVC</ListItem.Subtitle>
       </ListItem.Content>
     </ListItem>
   );
