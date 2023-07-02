@@ -16,25 +16,18 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { auth, db } from "../firebase";
+
 const LoginScreen = ({ navigation }) => {
   const headerHeight = useHeaderHeight();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  // const navigation = useNavigation();
-  // console.log(email);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/auth.user
         const uid = user.uid;
         navigation.navigate("Home");
-        // ...
       } else {
-        // User is signed out
-        // ...
-        // console.log("error");
       }
     });
   }, []);
@@ -42,17 +35,13 @@ const LoginScreen = ({ navigation }) => {
     // const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
-        // ...
-        // console.log(user);
         navigation.navigate("Home");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        alert("Err");
-        // console.log(errorMessage);
+        alert("Not Signed In");
       });
   };
 

@@ -22,6 +22,13 @@ const RegisterScreen = () => {
   const [name, setName] = useState();
   const [image, setImage] = useState();
   const navigation = useNavigation();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerBackTitle: "Login",
+    });
+  }, [navigation]);
+
   const register = () => {
     // const auth = getAuth();
 

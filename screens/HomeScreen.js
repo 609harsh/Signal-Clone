@@ -32,6 +32,7 @@ const HomeScreen = ({ navigation }) => {
       console.log(arr);
       setChats([...arr]);
     });
+    return () => {};
   }, [focus]);
 
   const signout = () => {
